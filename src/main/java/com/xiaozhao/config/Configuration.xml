@@ -36,9 +36,9 @@
         <property name="" value=""/>
       </transactionManager>
       <dataSource type="UNPOOLED">
-        <property name="driver" value="org.hsqldb.jdbcDriver"/>
-        <property name="url" value="jdbc:hsqldb:mem:complexprop"/>
-        <property name="username" value="sa"/>
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/ShanXiShenBao"/>
+        <property name="username" value="root"/>
       </dataSource>
     </environment>
   </environments>
