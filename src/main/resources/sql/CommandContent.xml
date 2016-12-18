@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CommandContent">
+    <resultMap id="CommandContentResult" type="com.xiaozhao.bean.CommandContent">
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+        <result column="COMMAND_ID" jdbcType="INTEGER" property="commandId"/>
+    </resultMap>
+    
+    <select id="queryAllContent" resultMap="CommandContentResult">
+        SELECT  * FROM COMMAND_CONTENT
+    </select>
+</mapper>

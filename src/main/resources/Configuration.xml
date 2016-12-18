@@ -21,10 +21,11 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-  <!--<settings>-->
+  <settings>
     <!--<setting name="useGeneratedKeys" value="false"/>-->
     <!--<setting name="useColumnLabel" value="true"/>-->
-  <!--</settings>-->
+    <setting name="logImpl" value="LOG4J"/>
+  </settings>
 
   <!--<typeAliases>-->
     <!--<typeAlias alias="UserAlias" type="org.apache.ibatis.submitted.complex_property.User"/>-->
@@ -37,7 +38,7 @@
       </transactionManager>
       <dataSource type="UNPOOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/xiaoTest"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/myBatisDemo?useUnicode=true&amp;characterEncoding=UTF8"/>
         <property name="username" value="root"/>
         <property name="password" value="hblgdx703ys"/>
       </dataSource>
@@ -46,6 +47,8 @@
 
   <mappers>
     <mapper resource="sql/Message.xml"/>
+    <mapper resource="sql/Command.xml"/>
+    <mapper resource="sql/CommandContent.xml"/>
   </mappers>
 
 </configuration>

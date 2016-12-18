@@ -13,9 +13,36 @@
         <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
     </resultMap>
 
-    <select id="queryMessageList"  resultMap="MessageResult">
-        SELECT * FROM message
+    <select id="queryMessageList" parameterType="com.xiaozhao.bean.Message"  resultMap="MessageResult">
+        SELECT ID,COMMAND,DESCRIPTION,CONTENT FROM message WHERE  1=1
+        <if test="command!=null and !&quot;&quot;.equals(command.trim())">
+            and COMMAND = #{command}
+        </if>
     </select>
+
+    <select id="queryAll" resultMap="MessageResult">
+        SELECT ID,COMMAND,DESCRIPTION,CONTENT FROM message
+    </select>
+
+    <delete id="deleteMessageById" parameterType="int">
+        DELETE  FROM message WHERE ID = #{_parameter}
+    </delete>
+
+    <delete id="deleteMessagesWithArray" parameterType="java.util.List">
+        DELETE  FROM message WHERE  ID in (
+        <foreach collection="list" item="item" separator=",">
+            #{item}
+        </foreach>
+        )
+    </delete>
+
+    <insert id="addMessage" parameterType="com.xiaozhao.bean.Message">
+        insert into message(COMMAND,DESCRIPTION,CONTENT) values(#{command},#{desciption},#{content})
+    </insert>
+
+    <update id="updateMessage" parameterType="com.xiaozhao.bean.Message">
+        UPDATE message SET DESCRIPTION = #{desciption} WHERE  ID = #{id}
+    </update>
 
 
 </mapper>
