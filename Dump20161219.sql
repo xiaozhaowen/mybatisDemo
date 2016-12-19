@@ -1,0 +1,102 @@
+-- MySQL dump 10.13  Distrib 5.7.12, for osx10.9 (x86_64)
+--
+-- Host: localhost    Database: myBatisDemo
+-- ------------------------------------------------------
+-- Server version	5.7.13
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `COMMAND`
+--
+
+DROP TABLE IF EXISTS `COMMAND`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `COMMAND` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(45) DEFAULT NULL,
+  `DESCRIPTION` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `COMMAND`
+--
+
+LOCK TABLES `COMMAND` WRITE;
+/*!40000 ALTER TABLE `COMMAND` DISABLE KEYS */;
+INSERT INTO `COMMAND` VALUES (1,'编程语言','这里是说明'),(2,'运动项目','生命在于运动');
+/*!40000 ALTER TABLE `COMMAND` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `COMMAND_CONTENT`
+--
+
+DROP TABLE IF EXISTS `COMMAND_CONTENT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `COMMAND_CONTENT` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `CONTENT` varchar(500) DEFAULT NULL,
+  `COMMAND_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `COMMAND_CONTENT`
+--
+
+LOCK TABLES `COMMAND_CONTENT` WRITE;
+/*!40000 ALTER TABLE `COMMAND_CONTENT` DISABLE KEYS */;
+INSERT INTO `COMMAND_CONTENT` VALUES (1,'JAVA',1),(2,'Swift',1);
+/*!40000 ALTER TABLE `COMMAND_CONTENT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `message`
+--
+
+DROP TABLE IF EXISTS `message`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `message` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `COMMAND` varchar(16) DEFAULT NULL COMMENT '指令名称',
+  `DESCRIPTION` varchar(32) DEFAULT NULL COMMENT '描述',
+  `CONTENT` varchar(2048) DEFAULT NULL COMMENT '内容',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `message`
+--
+
+LOCK TABLES `message` WRITE;
+/*!40000 ALTER TABLE `message` DISABLE KEYS */;
+/*!40000 ALTER TABLE `message` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-12-19 19:06:55
